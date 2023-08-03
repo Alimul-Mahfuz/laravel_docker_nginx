@@ -18,6 +18,7 @@ services:
       - "8000:80"
     volumes:
       - ./src:/var/www/html
+      # you must create the folder nginx and inside it create a file nginx.conf. Now defualt.conf of container machine will have symbolic link with your local nginx.conf
       - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - app
@@ -30,6 +31,7 @@ services:
     ports:
       - 9008:3306
     volumes:
+    #You must have this folder in your project
       - ./mysql:/var/lib/mysql
     
   phpmyadmin:
